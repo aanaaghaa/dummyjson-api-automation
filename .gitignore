@@ -1,0 +1,8 @@
+target/
+*.class
+*.log
+test-output/
+.idea/
+*.iml
+.vscode/
+*.html

@@ -1,0 +1,25 @@
+<!-- 
+    TestNG Suite XML file to configure and execute API test cases.
+    This file defines the test suite, test classes, and attached listeners.
+-->
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<!-- Define the test suite -->
+<suite name="DummyJSON Suite">
+<!-- Register custom TestNG listeners (for logging/reporting) -->
+<listeners>
+    <listener class-name="listeners.ExtentTestListener" />
+</listeners>
+
+    <!-- Define a test block inside the suite -->
+    <test name="Product API Tests">
+     <!-- List of test classes to be executed -->
+        <classes>
+        <!-- Basic Product API tests -->
+           <class name="com.anagha.api.dummyjson_api_test.ProductAPITests"/>
+            <!-- Product API tests with authentication token -->
+            <class name="com.anagha.api.dummyjson_api_test.ProductAPITestswithAuth"/>
+             <!-- Simulated flaky test to demonstrate retry logic -->
+            <class name="com.anagha.api.dummyjson_api_test.ProductAPITestsFlaky"/>
+        </classes>
+    </test>
+</suite>
