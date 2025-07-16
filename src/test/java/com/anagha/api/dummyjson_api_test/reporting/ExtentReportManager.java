@@ -1,5 +1,7 @@
 package com.anagha.api.dummyjson_api_test.reporting;
 
+import java.io.File;
+
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
@@ -23,7 +25,13 @@ public class ExtentReportManager {
 		//Helps create the report for the first time 
 		if(extent==null)
 		{
-			ExtentSparkReporter reporter=new ExtentSparkReporter("test-output/ExtentReport.html");
+			//ExtentSparkReporter reporter=new ExtentSparkReporter("test-output/ExtentReport.html");
+			String reportPath = System.getProperty("user.dir")          
+			        + File.separator + "test-output"
+			        + File.separator + "ExtentReport.html";
+
+			ExtentSparkReporter reporter = new ExtentSparkReporter(reportPath);
+
 			//Configuration details of the Extent Spark Report
 			reporter.config().setDocumentTitle("Dummy JSON's API Automation Report");
 			reporter.config().setReportName("Dummy JSON API Test Report");
