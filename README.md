@@ -1,3 +1,4 @@
+<<<<<<< HEAD
   Dummy JSON API Automation Framework
 
 This is an API Automation Testing Framework built using Java, TestNG, RestAssured, and ExtentReports to test the `https://dummyjson.com` API endpoints. It includes schema validation, custom logging, reporting, retry logic, and email notification of results.
@@ -30,7 +31,8 @@ src/main/java
 	└── ProductAPITestsFlaky.java
 	
 └── src/test/resources
-	├── schemas  JSON Schemas for validation
+	├── schemas  JSON Schemas for validation and README.md for the json files
+	
 
 
  Features
@@ -106,3 +108,6 @@ This project is open-source for learning and demonstration purposes.
 
  API Used
 Dummy JSON API
+=======
+# dummyjson-api-automation
+>>>>>>> 20efc9d67766c7da920fba074f4214489de1a6b2

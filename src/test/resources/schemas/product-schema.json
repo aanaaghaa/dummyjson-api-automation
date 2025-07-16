@@ -1,12 +1,3 @@
-/*
-  JSON Schema for validating the "Get Product by ID" API response.
-
-  - Ensures that each individual product response includes mandatory fields like:
-    id, title, price, rating, stock, brand, and category.
-  - Used for schema validation in automated tests (e.g., with Rest Assured).
-  - Helps maintain consistent structure for product object responses across environments.
-*/
-
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Product Schema",

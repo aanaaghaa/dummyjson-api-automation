@@ -1,12 +1,3 @@
-/*
-  JSON Schema for validating the response of the "Get All Products" API.
-
-  - Ensures that the response contains a list of product objects with essential fields like id, title, price, rating, etc.
-  - Each product must follow a defined structure to ensure data consistency.
-  - Validates overall response structure including pagination metadata (total, skip, limit).
-  - Useful for schema validation in automated API tests using Rest Assured or other tools.
-*/
-
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Products List Schema",
