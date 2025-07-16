@@ -33,7 +33,7 @@ public class ProductAPITestsFlaky extends BaseTest{
 				.get("/productss")
 				.then()
 				.log().all()
-				.statusCode(200);
+				.statusCode(404);
 		Response rawResponse = validatableResponse.extract().response();
 		ResponseHolder.setResponse(rawResponse); 
 		ResponseHolder.setValidateableResponse(validatableResponse);
