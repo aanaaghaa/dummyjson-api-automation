@@ -30,7 +30,7 @@ public class ExtentReportManager {
 			        + File.separator + "test-output"
 			        + File.separator + "ExtentReport.html";
 
-			ExtentSparkReporter reporter = new ExtentSparkReporter(reportPath);
+			ExtentSparkReporter reporter = new ExtentSparkReporter(reportPath + File.separator + "ExtentReport.html");
 
 			//Configuration details of the Extent Spark Report
 			reporter.config().setDocumentTitle("Dummy JSON's API Automation Report");
