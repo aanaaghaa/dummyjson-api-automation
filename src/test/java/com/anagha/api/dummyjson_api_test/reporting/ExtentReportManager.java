@@ -26,11 +26,13 @@ public class ExtentReportManager {
 		if(extent==null)
 		{
 			//ExtentSparkReporter reporter=new ExtentSparkReporter("test-output/ExtentReport.html");
-			String reportPath = System.getProperty("user.dir")          
-			        + File.separator + "test-output"
-			        + File.separator + "ExtentReport.html";
+			 String reportFolder = System.getProperty("user.dir")
+		                + File.separator + "test-output"
+		                + File.separator + "ExtentReports";
 
-			ExtentSparkReporter reporter = new ExtentSparkReporter(reportPath + File.separator + "ExtentReport.html");
+		        new File(reportFolder).mkdirs(); // Make sure folder exists
+
+		        ExtentSparkReporter reporter = new ExtentSparkReporter(reportFolder + File.separator + "ExtentReport.html");
 
 			//Configuration details of the Extent Spark Report
 			reporter.config().setDocumentTitle("Dummy JSON's API Automation Report");
