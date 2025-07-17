@@ -23,28 +23,32 @@ public class ExtentReportManager {
 	public static void initReports()
 	{
 		//Helps create the report for the first time 
-		  if(extent == null) {
-		        String reportFolder = System.getProperty("user.dir") 
-		            + File.separator + "test-output" 
-		            + File.separator + "ExtentReports_" + System.currentTimeMillis();
-		        ExtentSparkReporter reporter = new ExtentSparkReporter(reportFolder);
+			  if (extent == null) {
+				    String reportFolder = System.getProperty("user.dir") 
+				        + File.separator + "test-output" 
+				        + File.separator + "ExtentReports";
 
-			//Configuration details of the Extent Spark Report
-			reporter.config().setDocumentTitle("Dummy JSON's API Automation Report");
-			reporter.config().setReportName("Dummy JSON API Test Report");
-			reporter.config().setTheme(Theme.DARK);
-			reporter.config().setTimeStampFormat("MM-DD-YYYY HH:mm:ss");
+				    String reportPath = reportFolder + File.separator + "ExtentReport.html";
+				    ExtentSparkReporter reporter = new ExtentSparkReporter(reportPath);
+				    
+				    // Configurations
+				    reporter.config().setDocumentTitle("Dummy JSON's API Automation Report");
+				    reporter.config().setReportName("Dummy JSON API Test Report");
+				    reporter.config().setTheme(Theme.DARK);
+				    reporter.config().setTimeStampFormat("MM-DD-YYYY HH:mm:ss");
 
-			extent=new ExtentReports();
-			//Basic information of the report
-			extent.attachReporter(reporter);
-			extent.setSystemInfo("Tester", "Anagha");
-			extent.setSystemInfo("Environment", "QA");
-			extent.setSystemInfo("API Base URL", "https://dummyjson.com");
-	        extent.setSystemInfo("Test Data Version", "v1.0");
-	        extent.setSystemInfo("Device", System.getProperty("os.name") + " - " + System.getProperty("os.arch"));
-			extent.setSystemInfo("Java Version", System.getProperty("java.version"));
-		}
+				   extent = new ExtentReports();
+				    extent.attachReporter(reporter);
+				    
+				    // Environment Info
+				    extent.setSystemInfo("Tester", "Anagha");
+				    extent.setSystemInfo("Environment", "QA");
+				    extent.setSystemInfo("API Base URL", "https://dummyjson.com");
+				    extent.setSystemInfo("Test Data Version", "v1.0");
+				    extent.setSystemInfo("Device", System.getProperty("os.name") + " - " + System.getProperty("os.arch"));
+				    extent.setSystemInfo("Java Version", System.getProperty("java.version"));
+				}
+
 	}
 	
 	/**
