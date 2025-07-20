@@ -34,7 +34,7 @@ public class ExtentReportManager {
 					    reportDir.mkdirs();
 					}
 				   String reportPath = reportFolder + File.separator + "ExtentReport.html";
-				    ExtentSparkReporter reporter = new ExtentSparkReporter(reportFolder);
+				    ExtentSparkReporter reporter = new ExtentSparkReporter(reportPath);
 				    //reporter.config().setResourceCDN(ResourceCDN.EMBEDDED);
 					
 				    // Configurations
