@@ -37,7 +37,7 @@ public class ExtentReportManager {
 
 			  // String reportPath = reportFolder + File.separator + "ExtentReport.html";
 			    ExtentSparkReporter reporter = new ExtentSparkReporter(reportPath);
-			    reporter.loadJSONConfig(new File(reportPath + File.separator + "extent-config.json"));
+			    //reporter.loadJSONConfig(new File(reportPath + File.separator + "extent-config.json"));
 
 					
 				    // Configurations
