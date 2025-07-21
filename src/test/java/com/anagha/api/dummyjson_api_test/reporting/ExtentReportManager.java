@@ -28,6 +28,8 @@ public class ExtentReportManager {
 	{
 			//Helps create the report for the first time 
 		  if (extent == null) {
+			  System.out.println("Project Dir in Jenkins: " + System.getProperty("user.dir"));
+
 			    String report = System.getProperty("user.dir") 
 			        + File.separator + "test-output" + File.separator + "ExtentReport.html";
 			        ;
