@@ -1,6 +1,10 @@
 package com.anagha.api.dummyjson_api_test.reporting;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -20,16 +24,21 @@ public class ExtentReportManager {
 	/*Initializes the ExtentReports object only once for the test run.
 	 * Sets the report file path, theme, report name, and environment info.
 	 */
-	public static void initReports()
+	public static void initReports() throws IOException
 	{
 			//Helps create the report for the first time 
 		  if (extent == null) {
-			    String reportFolder = System.getProperty("user.dir") 
+			    /*String reportFolder = System.getProperty("user.dir") 
 			        + File.separator + "test-output" 
-			        + File.separator + "ExtentReports";
+			        + File.separator + "ExtentReports";*/
+			    Path reportFolder = Paths.get(System.getProperty("user.dir"), "test-output", "ExtentReports");
+			    Files.createDirectories(reportFolder);
+			    String reportPath = reportFolder.resolve("ExtentReport.html").toString();
 
-			   String reportPath = reportFolder + File.separator + "ExtentReport.html";
+			  // String reportPath = reportFolder + File.separator + "ExtentReport.html";
 			    ExtentSparkReporter reporter = new ExtentSparkReporter(reportPath);
+			    reporter.loadJSONConfig(new File(reportPath + File.separator + "extent-config.json"));
+
 					
 				    // Configurations
 				    reporter.config().setDocumentTitle("Dummy JSON's API Automation Report");

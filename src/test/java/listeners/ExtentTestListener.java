@@ -1,5 +1,6 @@
 package listeners;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
@@ -40,7 +41,12 @@ public class ExtentTestListener implements ITestListener{
 	     */
 	  @Override
 	    public void onStart(ITestContext context) {
-	        ExtentReportManager.initReports();
+	        try {
+				ExtentReportManager.initReports();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 	        logger.debug("ExtentReports initialized for test suite: " + context.getName());
 	    }
 
