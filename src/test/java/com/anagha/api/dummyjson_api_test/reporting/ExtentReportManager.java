@@ -22,16 +22,14 @@ public class ExtentReportManager {
 	 */
 	public static void initReports()
 	{
-	
-
-		//Helps create the report for the first time 
+			//Helps create the report for the first time 
 		  if (extent == null) {
 			    String reportFolder = System.getProperty("user.dir") 
 			        + File.separator + "test-output" 
 			        + File.separator + "ExtentReports";
 
-			   // String reportPath = reportFolder + File.separator + "ExtentReport.html";
-			    ExtentSparkReporter reporter = new ExtentSparkReporter(reportFolder);
+			   String reportPath = reportFolder + File.separator + "ExtentReport.html";
+			    ExtentSparkReporter reporter = new ExtentSparkReporter(reportPath);
 					
 				    // Configurations
 				    reporter.config().setDocumentTitle("Dummy JSON's API Automation Report");
