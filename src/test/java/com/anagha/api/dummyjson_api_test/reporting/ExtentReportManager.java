@@ -30,7 +30,7 @@ public class ExtentReportManager {
 		  if (extent == null) {
 			    String reportFolder = System.getProperty("user.dir") 
 			        + File.separator + "test-output" 
-			        + File.separator + "ExtentReports";
+			        ;
 			    
 
 			   String reportPath = reportFolder + File.separator + "ExtentReport.html";
