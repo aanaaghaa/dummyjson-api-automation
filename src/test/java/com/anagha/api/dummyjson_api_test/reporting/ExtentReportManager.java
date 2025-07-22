@@ -31,7 +31,7 @@ public class ExtentReportManager {
 			  System.out.println("Project Dir in Jenkins: " + System.getProperty("user.dir"));
 
 			    String report = System.getProperty("user.dir") 
-			        + File.separator +"target" +File.separator + "test-output" + File.separator + "ExtentReport.html";
+			        +File.separator + "test-output" + File.separator + "ExtentReport.html";
 			        ;
 			    ExtentSparkReporter reporter = new ExtentSparkReporter(report);
 
