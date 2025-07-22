@@ -56,7 +56,12 @@ public class ExtentTestListener implements ITestListener{
 	     */
 	    @Override
 	    public void onFinish(ITestContext context) {
-	        ExtentReportManager.flushReports();
+	        try {
+				ExtentReportManager.flushReports();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 	        logger.debug("ExtentReports flushed and test suite completed: " + context.getName());
 
 	    }
