@@ -58,12 +58,14 @@ public class ExtentReportManager {
 	/**
      * Flushes the Extent report, writing all test information to the HTML file.
      * Should be called once after all tests are executed.
+	 * @throws InterruptedException 
      */
-	public static void flushReports()
+	public static void flushReports() throws InterruptedException
 	{
 		//Flushes the report at the end only if there are details in the report
 		if(extent!=null)
 		{
+			Thread.sleep(1000);
 			extent.flush();
 		}
 	}
