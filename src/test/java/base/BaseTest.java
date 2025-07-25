@@ -40,14 +40,11 @@ public class BaseTest {
 	 /**
      * Executed once after the entire test suite finishes.
      * Sends the generated Extent HTML report via email.
+	 * @throws InterruptedException 
      */
 	@AfterSuite
-	public void tearDown() {
-		 try {
-		        ExtentReportManager.flushReports(); // This is **critical**
-		    } catch (InterruptedException e) {
-		        e.printStackTrace();
-		    }
+	public void tearDown() throws InterruptedException {
+		        ExtentReportManager.flushReports(); 
 
 		    String reportPath = System.getProperty("user.dir") + "/target/test-output/ExtentReport.html";
 		    EmailReportSender.sendReport(reportPath);

@@ -79,7 +79,7 @@ public class ExtentReportManager {
 		//Flushes the report at the end only if there are details in the report
 		if(extent!=null)
 		{
-			Thread.sleep(1000);
+			//Thread.sleep(1000);
 			extent.flush();
 		}
 	}
