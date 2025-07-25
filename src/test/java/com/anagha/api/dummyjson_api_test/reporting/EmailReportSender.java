@@ -42,7 +42,7 @@ public class EmailReportSender {
             );
             
          // Construct full local report URL (for clickable HTML body)
-            String reportURL = "file:///C:/Users/Anagha/git/repository/dummyjson-api-test/test-output/ExtentReport.html" + reportPath.replace("\\", "/");
+            String reportURL = "file:///C:/Users/Anagha/git/repository/dummyjson-api-test/target/test-output/ExtentReport.html" + reportPath.replace("\\", "/");
             
          // Email body in HTML format
             String htmlBody = "<h3>Hi,</h3>"

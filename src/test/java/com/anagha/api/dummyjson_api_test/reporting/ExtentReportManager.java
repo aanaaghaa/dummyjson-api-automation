@@ -24,16 +24,30 @@ public class ExtentReportManager {
 	/*Initializes the ExtentReports object only once for the test run.
 	 * Sets the report file path, theme, report name, and environment info.
 	 */
-	public static void initReports() throws IOException
+	public static ExtentReports initReports() throws IOException
 	{
 			//Helps create the report for the first time 
 		  if (extent == null) {
 			  System.out.println("Project Dir in Jenkins: " + System.getProperty("user.dir"));
 
-			    String report = System.getProperty("user.dir") 
-			        + File.separator +"target" +File.separator + "test-output" + File.separator + "ExtentReport.html";
-			        ;
-			    ExtentSparkReporter reporter = new ExtentSparkReporter(report);
+			    String reportFolder = System.getProperty("user.dir") 
+			        + File.separator +"target" 
+			    	+ File.separator + "test-output";
+
+			    new File(reportFolder).mkdirs();
+			    String reportPath = reportFolder+ File.separator + "ExtentReport.html";
+			    Path reportFilePath = Paths.get(reportPath);
+			    if (Files.exists(reportFilePath) && Files.isDirectory(reportFilePath)) {
+			        // Delete the directory and its contents
+			        Files.walk(reportFilePath)
+			             .map(Path::toFile)
+			             .sorted((a, b) -> -a.compareTo(b)) // Delete children before parent
+			             .forEach(File::delete);
+			    }
+			    ExtentSparkReporter reporter = new ExtentSparkReporter(reportPath);
+			    
+			    extent = new ExtentReports();
+			    extent.attachReporter(reporter);
 
 				    // Configurations
 				    reporter.config().setDocumentTitle("Dummy JSON's API Automation Report");
@@ -41,8 +55,7 @@ public class ExtentReportManager {
 				    reporter.config().setTheme(Theme.DARK);
 				    reporter.config().setTimeStampFormat("MM-DD-YYYY HH:mm:ss");
 
-				   extent = new ExtentReports();
-				    extent.attachReporter(reporter);
+				   
 				    
 				    // Environment Info
 				    extent.setSystemInfo("Tester", "Anagha");
@@ -52,6 +65,7 @@ public class ExtentReportManager {
 				    extent.setSystemInfo("Device", System.getProperty("os.name") + " - " + System.getProperty("os.arch"));
 				    extent.setSystemInfo("Java Version", System.getProperty("java.version"));
 				}
+		return extent;
 
 	}
 	
